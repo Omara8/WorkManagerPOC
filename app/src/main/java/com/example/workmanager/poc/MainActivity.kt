@@ -2,6 +2,7 @@ package com.example.workmanager.poc
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -18,7 +19,11 @@ class MainActivity : AppCompatActivity() {
         val clearPref: MaterialButton = findViewById(R.id.clear_all)
         val timePeriodsLayout: LinearLayout = findViewById(R.id.time_periods_linear_layout)
         val firstTimePeriod: TimePeriodLayout = findViewById(R.id.first_time_period)
+        val geofenceSetting: MaterialButton = findViewById(R.id.go_geofence)
 
+        geofenceSetting.setOnClickListener {
+            startActivity(Intent(this, GeoFenceActivity::class.java))
+        }
         clearPref.setOnClickListener {
             AppPrefHelper().clearPreferences()
             timePeriodsLayout.removeAllViews()
