@@ -28,7 +28,9 @@
         <activity android:name=".GeoFenceActivity" />
         <service
             android:enabled="true"
+            android:foregroundServiceType="location"
             android:name=".DummyService"/>
+
         <receiver android:name=".GeofenceBroadcastReceiver"/>
     </application>
 

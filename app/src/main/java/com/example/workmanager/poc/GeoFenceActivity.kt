@@ -28,11 +28,8 @@ class GeoFenceActivity : AppCompatActivity() {
         val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
         // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
         // addGeofences() and removeGeofences().
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE)
-        } else {
             PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        }
+
     }
 
     companion object {
@@ -235,5 +232,5 @@ class GeoFenceActivity : AppCompatActivity() {
 }
 
 fun String.checkIfValidRadius(): Boolean {
-    return (this.toFloat() in 1.0..15.0)
+    return (this.toFloat() in 1.0..50.0)
 }
